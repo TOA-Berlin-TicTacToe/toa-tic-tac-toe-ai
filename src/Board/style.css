@@ -1,0 +1,112 @@
+.board {
+    display: inline-grid;
+    grid-gap: 5px;
+    transition: .5s all ease-in;
+    background-size: 150%;
+    background-position: 40% 40%;
+    grid-template-columns: repeat(3, 20vh);
+    grid-template-rows: repeat(3, 20vh);
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .board {
+        grid-template-columns: repeat(3, 20vw);
+        grid-template-rows: repeat(3, 20vw);
+    }    
+}
+
+.board-cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #483a3a;
+    color: transparent;
+    mix-blend-mode: difference;
+    transition: all ease .4s;
+}
+
+.board-cell-x:before, .board-cell-x:after, .board-cell-o:before {
+    content: '';
+    position: absolute;
+}
+
+.board-cell-x:before, .board-cell-x:after {
+    height: 2px;
+    width: 100%;
+    background: black;
+    left: 0;
+    top: 50%;
+    transform: translateY(-.15rem) rotate(45deg);
+}
+
+.board-cell-x:before {
+    transform: translateY(-.15rem) rotate(45deg);
+    animation: cell-x-in .5s;
+}
+
+.board-cell-x:after {
+    transform: translateY(-.15rem) rotate(-45deg);
+    animation: cell-x-in-2 .3s;
+}
+
+.board-cell-o:before {
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+    border: 2px black solid;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: cell-y-in .4s cubic-bezier(0.58, 1.32, 0.47, 0.96);
+}
+
+@keyframes cell-x-in {
+    from {
+        transform: translateY(-.15rem) rotate(0deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-.15rem) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+@keyframes cell-x-in-2 {
+    from {
+        transform: translateY(-.15rem) rotate(0deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-.15rem) rotate(135deg);
+        opacity: 1;
+    }
+}
+
+@keyframes cell-y-in {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.board-cell-blank:hover {
+    background: #d2c2c2;
+    outline: none;
+    transition: all ease .1s;
+}
+
+.board-cell-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: transparent;
+    transition: all ease .5s;
+}

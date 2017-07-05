@@ -1,0 +1,42 @@
+.app-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-wrapper:before {
+    content: '';
+    height: 250%;
+    width: 250%;
+    position: absolute;
+    top: -75%;
+    left: -75%;
+    background: linear-gradient(-110deg, #00f9a6, #00f);
+    transition: all 1s cubic-bezier(0.91, 0.38, 0.61, 0.99);
+    z-index: -1;
+}
+
+.app-wrapper_logged-in:before {
+    transform: rotate(200deg);
+}
+
+.app-form {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-form input, .app-form button {
+    width: 300px;
+}
+
+.app-form input {
+    margin-bottom: 1rem;
+}
+
+.app-form button[disabled] {
+    color: transparent;
+}

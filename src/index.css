@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: futura, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;    
+}
+.button:not([disabled]):hover, .input-join:hover, .input-join:focus, .button:focus {
+    background: #565656;
+    color: black;
+    transition: all .1s;
+    outline: none;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button, .input-join {
+    color: inherit;
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 20px;    
+    border: none;
+    transition: all 3s;
+    mix-blend-mode: color-dodge;    
+}
+
+.button {
+    background: transparent;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.button[disabled] {
+    color: rgba(255, 255, 255, .5);
+}
+
+.button:not([disabled]) {
+    cursor: pointer;    
+}
+
+.input-join {
+    background: transparent;
+    padding: 1rem;
+    text-align: center;
+}
+
+.input-join::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .5);
+}
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,13 @@
+.lobby {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.lobby-inner {
+    flex: 0 1 900px;
+}
+
+.lobby-buttons {
+    margin-left: -1rem;
+}
