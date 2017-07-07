@@ -26,9 +26,9 @@ const mapEmit  = (emit, { game, games, username, isInGame, hasPendingGame }) => 
         emit('create', { username });
       }
     },
-    join: () => {
+    join: (gameUid) => {
       if (games.length) {
-        emit('join', { username });
+        emit('join', { username, gameUid });
       } else {
         logError('There are no games present for you to join');
       }
