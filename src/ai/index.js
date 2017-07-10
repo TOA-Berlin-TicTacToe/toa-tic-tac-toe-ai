@@ -66,7 +66,7 @@ const getSuccessors = (board, player, players) => {
   return successors;
 };
 
-const minimax = (board, isMaxPlayer, players) => {
+const minimax = (board, isMaxPlayer, players, alpha, beta) => {
   const successors = getSuccessors(board, players[isMaxPlayer ? 0 : 1], players);
   if (successors.length === 0) {
     return getUtility(board, players);
@@ -75,15 +75,25 @@ const minimax = (board, isMaxPlayer, players) => {
   if (isMaxPlayer) {
     let bestValue = -Infinity;
     for (let i = 0; i < successors.length; i++) {
-      const value = minimax(successors[i].board, false, players);
+      const value = minimax(successors[i].board, false, players, alpha, beta);
+      alpha = Math.max(value, alpha);
       bestValue = Math.max(value, bestValue);
+
+      if (beta <= alpha) {
+        break;
+      }
     }
     return bestValue;
   } else {
     let bestValue = Infinity;
     for (let i = 0; i < successors.length; i++) {
-      const value = minimax(successors[i].board, true, players);
+      const value = minimax(successors[i].board, true, players, alpha, beta);
+      beta = Math.min(value, beta);
       bestValue = Math.min(value, bestValue);
+
+      if (beta <= alpha) {
+        break;
+      }
     }
     return bestValue;
   }
