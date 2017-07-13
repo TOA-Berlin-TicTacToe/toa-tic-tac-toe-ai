@@ -6,7 +6,7 @@
     padding: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .game {
         text-align: center;
     }
@@ -16,10 +16,28 @@
     flex: 0 1 auto;
 }
 
+@media (min-aspect-ratio: 1/1) and (min-width: 600px) {
+    .game-inner {
+        width: calc(60vh + 15px);
+    }
+}
+
+@media (max-aspect-ratio: 1/1) and (min-width: 600px) {
+    .game-inner {
+        width: calc(60vw + 15px);
+    }
+}
+
 .game-area-header {
     color: #483a3a;
-    margin-bottom: 40px;
     transition: all ease .4s .2s;
+    min-height: 4rem;
+}
+
+@media (min-width: 600px) {
+    .game-area-header {
+        min-height: 5.5rem;
+    }
 }
 
 .game-area-header-active {
@@ -39,6 +57,12 @@
     min-width: 200px;
 }
 
+@media (max-width: 800px) {
+    .game-area-player {
+        min-width: 120px;
+    }
+}
+
 .game-area {
     position: relative;
     display: flex;
@@ -46,14 +70,24 @@
     justify-content: center;
 }
 
+@media (max-width: 600px) {
+    .game-area {
+        justify-content: space-between;
+    }
+
+    .game-board {
+        flex: 1 0 100%;
+    }
+}
+
 .player {
     transition: all ease .4s .2s;
-    flex: 0 0 50%;
+    flex: 0 1 auto;
     margin-top: 1rem;
     color: black;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 600px) {
     .player {
         position: absolute;
         top: 50%;
@@ -67,6 +101,12 @@
 
     .player-o {
         left: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .player {
+        min-width: 0;        
     }
 }
 
@@ -123,3 +163,4 @@
 .button-reset {
     margin-top: 1rem;
 }
+

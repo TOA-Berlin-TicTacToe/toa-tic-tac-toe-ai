@@ -2,8 +2,6 @@
     display: inline-grid;
     grid-gap: 5px;
     transition: .5s all ease-in;
-    background-size: 150%;
-    background-position: 40% 40%;
     grid-template-columns: repeat(3, 20vh);
     grid-template-rows: repeat(3, 20vh);
 }
